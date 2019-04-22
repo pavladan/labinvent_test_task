@@ -2,7 +2,9 @@ const initialState ={
   ethernet_ip_auto:true,
   ethernet_dns_auto:true,
   wifi_ip_auto:true,
-  wifi_dns_auto:true
+  wifi_dns_auto:true,
+  enableWifi:false,
+  enableWirelessSecurity:false
 }
 
 export default (state=initialState,action)=>{
@@ -28,6 +30,20 @@ export default (state=initialState,action)=>{
         ...state,
         wifi_dns_auto: payload
       };
+    case 'CHANGE_WIFI':
+      return {
+        ...state,
+        enableWifi: payload
+      };
+    case 'CHANGE_WIRELESS_SECURITY':
+      return {
+        ...state,
+        enableWirelessSecurity: payload
+      };
+    case 'RESET':
+      return{
+        ...initialState
+      }
     default:
       return state;
   }

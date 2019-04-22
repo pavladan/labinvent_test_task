@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux'
-import radio from './radio'
+import check from './check'
+import wifiList from './wifiList'
 
 export default combineReducers({
-  radio
+  check,
+  wifiList
 })

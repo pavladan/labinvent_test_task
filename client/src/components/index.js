@@ -1,2 +1,6 @@
 export {default as NotFound} from './NotFound'
 export {default as StartPage} from './StartPage'
+export {default as RadioButton} from './RadioButton'
+export {default as InputField} from './InputField'
+export {default as CheckButton} from './CheckButton'
+export {default as SelectInput} from './SelectInput'

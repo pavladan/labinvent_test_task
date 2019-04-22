@@ -7,7 +7,7 @@ class RadioButton extends Component{
     return(
       <div className="RadioButton">
         <label>
-        <input type="radio" name={this.props.name} defaultChecked={this.props.checked} onChange={this.props.onChangeClick}/>
+        <input type="radio" name={this.props.name} defaultChecked={this.props.checked} disabled={this.props.noActive} onChange={this.props.onChangeClick}/>
           {this.props.title}
         </label>
       </div>
