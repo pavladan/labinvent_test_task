@@ -1,0 +1,51 @@
+$square:20px;
+.CheckButton{
+  margin-bottom: 10px;
+  input{
+    display: none;
+    &:checked + label::before{
+      background-color: #1aa8eb;
+      border: 1px solid #1aa8eb;
+    }
+    &:disabled{
+      & + label{
+        color:#dfdfdf;
+      }
+      & + label::before{
+        border-color: #f2f2f3;
+      }
+    }
+  }
+  label{
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+      cursor: pointer;
+    }
+    &::before{
+      content: '';
+      flex: 0 0 auto;
+      display: inline-block;
+      height: $square;
+      width: $square;
+      background-color: #fff;
+      border: 1px solid #bec1c3;
+      border-radius: 2px;
+      margin-right: 10px;
+      transition: all 0.2s ease-in-out;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      left: $square/4;
+      top: $square/4;
+      height: $square/4;
+      width: $square/2;
+      border-bottom: 2px solid #fff; 
+      border-left: 2px solid #fff; 
+      transform: rotate(-45deg)
+    }
+  }
+}

@@ -1,0 +1,49 @@
+$circle:8px;
+$border:6px;
+.RadioButton{
+  margin-bottom: 10px;
+  label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:hover{
+    cursor: pointer;
+   }
+   &::before{
+     content: '';
+      display: inline-block;
+      flex: 0 0 auto;
+      height: ($circle+$border)+4px;
+      width: ($circle+$border)+4px;
+      border-radius: $circle+$border;
+      margin-right: 10px;
+      border: 1px solid #d0d2d3;
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  input{
+    display: none;
+  }
+  input:checked + label::before{
+    border: $border solid #1aa8eb;
+    background-color: #fff;
+    height: $circle;
+    width: $circle;
+  }
+  input:disabled + label{
+    color: #dfdfdf;
+  }
+  input:disabled + label::before{
+    border: 1px solid  #f2f2f3;
+  }
+  input:checked:disabled + label::before{
+    border: $border solid #9fdaf7;
+  }
+  input:not(:disabled):hover + label::before{
+    border: $border solid #1aa8eb;
+    background-color: #1aa8eb;
+    height: $circle;
+    width: $circle;
+  }
+}

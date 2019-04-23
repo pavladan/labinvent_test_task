@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 import {RadioButton,InputField,CheckButton,SelectInput} from '../../components/'
+import {postsApi} from '../../utils/api'
+import actions from '../actions'
 import './Settings.scss'
 
 class Settings extends Component {
   componentWillMount(){
-
+    postsApi.get().then(({data})=>{
+      this.props.updateWifiList(data);
+    })
   }
-  render() {
+  render() {    
     const ethernet_ip_auto=this.props.check.ethernet_ip_auto;
     const ethernet_dns_auto=this.props.check.ethernet_dns_auto;
     const enableWifi = this.props.check.enableWifi;
@@ -32,7 +36,7 @@ class Settings extends Component {
     const renderWifi=(
       <div>
         <CheckButton title='Enable wifi:' active name='wifi' checked={enableWifi} onChangeClick={()=>this.props.changeWifi(!this.props.check.enableWifi)}/>
-        <SelectInput title='Wireless Network Name:' active={enableWifi} placeholder='Please select' mandatory/>
+        <SelectInput title='Wireless Network Name:' active={enableWifi} placeholder='Please select' mandatory  wifiList={this.props.wifiList}/>
         <CheckButton title='Enable Wireless Security:' active={enableWifi} name='wifiSecurity' checked={enableWirelessSecurity} onChangeClick={()=>this.props.changeWirelessSecurity(!this.props.check.enableWirelessSecurity)}/>
         <InputField title="Security Key:" mandatory active={enableWirelessSecurity && enableWifi}/>
         
@@ -76,27 +80,5 @@ class Settings extends Component {
 
 export default connect(
   (state)=>state,
-  dispatch=>({
-    changeEthernetIp:(is)=>{
-      dispatch({type:'ETHERNET_IP_AUTO',payload:is})
-    },
-    changeEthernetDns:(is)=>{
-      dispatch({type:'ETHERNET_DNS_AUTO',payload:is})
-    },
-    changeWifi:(is)=>{
-      dispatch({type:'CHANGE_WIFI',payload:is})
-    },
-    changeWirelessSecurity:(is)=>{
-      dispatch({type:'CHANGE_WIRELESS_SECURITY',payload:is})
-    },
-    changeWifiIp:(is)=>{
-      dispatch({type:'WIFI_IP_AUTO',payload:is})
-    },
-    changeWifiDns:(is)=>{
-      dispatch({type:'WIFI_DNS_AUTO',payload:is})
-    },
-    resetCheckboxes:()=>{
-      dispatch({type:'RESET'})
-    }
-  })
+  actions
 )(Settings);

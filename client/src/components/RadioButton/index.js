@@ -4,10 +4,11 @@ import './RadioButton.scss'
 class RadioButton extends Component{
   
   render(){
+    const rnd='i' + Math.round(Math.random() * 500 );
     return(
       <div className="RadioButton">
-        <label>
-        <input type="radio" name={this.props.name} defaultChecked={this.props.checked} disabled={this.props.noActive} onChange={this.props.onChangeClick}/>
+        <input type="radio" id={rnd} name={this.props.name} defaultChecked={this.props.checked} disabled={this.props.noActive} onChange={this.props.onChangeClick}/>
+        <label htmlFor={rnd}>
           {this.props.title}
         </label>
       </div>

@@ -1,0 +1,26 @@
+export default dispatch=>({
+  changeEthernetIp:(is)=>{
+    dispatch({type:'ETHERNET_IP_AUTO',payload:is})
+  },
+  changeEthernetDns:(is)=>{
+    dispatch({type:'ETHERNET_DNS_AUTO',payload:is})
+  },
+  changeWifi:(is)=>{
+    dispatch({type:'CHANGE_WIFI',payload:is})
+  },
+  changeWirelessSecurity:(is)=>{
+    dispatch({type:'CHANGE_WIRELESS_SECURITY',payload:is})
+  },
+  changeWifiIp:(is)=>{
+    dispatch({type:'WIFI_IP_AUTO',payload:is})
+  },
+  changeWifiDns:(is)=>{
+    dispatch({type:'WIFI_DNS_AUTO',payload:is})
+  },
+  resetCheckboxes:()=>{
+    dispatch({type:'RESET'})
+  },
+  updateWifiList:(data)=>{
+    dispatch({type:'GET_WIFI_LIST',payload:data})
+  }
+});

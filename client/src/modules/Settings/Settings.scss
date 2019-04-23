@@ -1,0 +1,54 @@
+.Settings{
+  background-color: #fff;
+  border: 1px solid #bec1c3;
+  border-radius: 3px;
+  h2{
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  form{
+    color: #797175;
+  }
+  .btn{
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+    &-full{
+      border:1px solid #1aa8eb;
+      background-color: #1aa8eb;
+      color: #fff;
+      &:hover{
+        background-color: darken(#1aa8eb, 20%);
+        border:1px solid darken(#1aa8eb, 20%);
+      }
+    }
+    &-empty{
+      color:#1aa8eb;
+      background-color: #fff;
+      border:1px solid #1aa8eb;
+      &:hover{
+        color: darken(#1aa8eb, 20%);
+        border:1px solid darken(#1aa8eb, 20%);
+      }
+    }
+  }
+  .options{
+    border-bottom: 1px solid #bec1c3;
+    display: flex;
+    // flex-wrap: wrap;
+    @media screen and (max-width:666px) {
+      flex-wrap: wrap;
+    }
+    &__col{
+      flex:1 1 auto;
+      &:first-child{
+        border-right: 1px solid #bec1c3;
+        @media screen and (max-width:666px) {
+          border-right: none;
+          border-bottom: 1px solid #bec1c3;
+        }
+      }
+      padding: 20px;
+
+    }
+  }
+}
