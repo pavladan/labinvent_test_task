@@ -1,5 +1,4 @@
 const WifiItem = require('../models/WifiItem');
-const mock = require('../resources/mock.json')
 
 class WifiItemController{
   index(req,res){
@@ -12,10 +11,10 @@ class WifiItemController{
   }
   init(req,res){
     WifiItem.remove();
-    mock.forEach(e=>{
+    req.forEach(e=>{
       const post = new WifiItem(e)
-    post.save().then(()=>{
-      res.send({status:'ok'});
+      post.save().then(()=>{
+        res.send({status:'ok'});
     });
     })
     
