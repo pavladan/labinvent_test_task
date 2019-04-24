@@ -40,6 +40,10 @@ export default (state=initialState,action)=>{
         ...state,
         enableWirelessSecurity: payload
       };
+    case 'UPDATE_ALL':
+      return{
+        ...payload 
+      }
     case 'RESET':
       return{
         ...initialState

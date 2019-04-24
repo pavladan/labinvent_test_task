@@ -1,5 +1,7 @@
 import { axios } from '../../core';
 
 export default {
-  get: () => axios.get('/settings')
+  getWifiList: () => axios.get('/wifilist'),
+  getSettings: () => axios.get('/getSettings'),
+  // postSettungs: () => axios.post('/settings'),
 };

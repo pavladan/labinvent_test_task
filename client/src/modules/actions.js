@@ -17,6 +17,9 @@ export default dispatch=>({
   changeWifiDns:(is)=>{
     dispatch({type:'WIFI_DNS_AUTO',payload:is})
   },
+  updateCheck:(data)=>{
+    dispatch({type:'UPDATE_ALL',payload:data})
+  },
   resetCheckboxes:()=>{
     dispatch({type:'RESET'})
   },
