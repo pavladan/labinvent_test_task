@@ -2,7 +2,7 @@
 
 ```bash
 # Start MongoDB
-usually: C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe
+run \MongoDB\Server\4.0\bin\mongod.exe
 
 # Clone the repository
 git clone https://github.com/pavladan/labinvent_test_task.git
