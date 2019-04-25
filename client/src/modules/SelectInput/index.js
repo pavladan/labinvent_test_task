@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {postsApi} from '../../utils/api'
+import {Api} from '../../utils/api'
 import actions from '../actions'
 import './SelectInput.scss'
 import { ReactComponent as Logo } from '../../img/refresh_icon.svg';
@@ -10,7 +10,7 @@ class SelectInput extends Component{
     const svg=e.currentTarget;
     svg.classList.add('load');
     console.log(svg);
-    postsApi.getWifiList().then(({data})=>{
+    Api.getWifiList().then(({data})=>{
       this.props.updateWifiList(data);
       svg.classList.remove('load');
     })
@@ -21,13 +21,12 @@ class SelectInput extends Component{
       <li key={e._id} onClick={(e)=>{document.querySelector('.select__head').innerHTML=e.currentTarget.innerText}}>{e.name}</li>
     ))
     const classNameSelect=this.props.active?'SelectInput': 'SelectInput disabled';
-    const value = this.props.value !=='' ? this.props.value : <div className='placeholder'> {this.props.placeholder}</div>
     return(
       <div className={classNameSelect}>
         <Logo className="update_svg" onClick={(e)=>this.onClickUpdate(e)}></Logo>
         <div className="select" onClick={(e)=>{this.props.active && e.currentTarget.classList.toggle('open')}}>
-          <div className="select__head" > 
-            {value}
+          <div className={this.props.mandatory ? 'select__head required' : "select__head"} id={this.props.id}> 
+            <p className='placeholder'> {this.props.placeholder}</p>
           </div>
           <ul>
           {renderWifiList}

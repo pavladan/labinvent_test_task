@@ -11,6 +11,9 @@
     border: 1px solid #d0d2d3;
     margin-left: 10px;
     transition: all 0.2s ease-in-out;
+    &.error{
+      border: 1px solid red;
+    }
     & + label{
       transition: all 0.2s ease-in-out;
       span{

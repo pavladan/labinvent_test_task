@@ -16,7 +16,7 @@ const SettingsSchema = new Schema(
       },
       'wireless':{
         'networkName':String,
-        'securrityKey':String,
+        'securityKey':String,
         'ipBlock':{
           'ip':String,
           'mask':String,

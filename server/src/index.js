@@ -32,9 +32,9 @@ const mockLoading = ()=>{
 WifiItem.find().then((item)=>item.length===0 && mockLoading()).catch(err=>console.log(err));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.get('/init',wifiItemController.init);
 app.get('/wifilist',wifiItemController.index);
 app.get('/getSettings',settingsController.getSettings);
+app.post('/setSettings',settingsController.setSettings);
 
 app.listen(5000,()=>{
   console.log('Server are started');

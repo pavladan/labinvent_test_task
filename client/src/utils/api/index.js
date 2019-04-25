@@ -1,1 +1,1 @@
-export { default as postsApi } from './items';
+export { default as Api } from './items';
