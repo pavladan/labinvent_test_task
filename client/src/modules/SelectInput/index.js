@@ -6,10 +6,21 @@ import './SelectInput.scss'
 import { ReactComponent as Logo } from '../../img/refresh_icon.svg';
 
 class SelectInput extends Component{
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClickOutside, false);
+  }
+  componentWillMount() {
+    document.addEventListener('click', this.handleClickOutside, false);
+  }
+  handleClickOutside = (event)=>{
+    const domNode = document.querySelector('.select');
+    if ((!domNode || !domNode.contains(event.target)) && domNode.classList.contains('open')) {
+      domNode.classList.remove('open')
+    }
+}
   onClickUpdate=(e)=>{
     const svg=e.currentTarget;
     svg.classList.add('load');
-    console.log(svg);
     Api.getWifiList().then(({data})=>{
       this.props.updateWifiList(data);
       svg.classList.remove('load');
