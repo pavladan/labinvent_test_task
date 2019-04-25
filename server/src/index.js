@@ -26,7 +26,7 @@ const mockLoading = ()=>{
     const mockItem = new WifiItem(e)
     mockItem.save(err=>{
         if(err) console.log(err);
-        console.log('mock onload')})
+    })
   });
 }
 WifiItem.find().then((item)=>item.length===0 && mockLoading()).catch(err=>console.log(err));
