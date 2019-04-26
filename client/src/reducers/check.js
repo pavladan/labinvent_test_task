@@ -1,11 +1,4 @@
-const initialState ={
-  ethernet_ip_auto:true,
-  ethernet_dns_auto:true,
-  wifi_ip_auto:true,
-  wifi_dns_auto:true,
-  enableWifi:false,
-  enableWirelessSecurity:false
-}
+const initialState ={}
 
 export default (state=initialState,action)=>{
   const {type,payload} = action;

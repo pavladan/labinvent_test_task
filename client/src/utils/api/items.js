@@ -8,5 +8,4 @@ export default {
     url:'/setSettings',
     data:data
   })
-  // postSettungs: () => axios.post('/settings'),
 };
